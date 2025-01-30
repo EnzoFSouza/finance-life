@@ -1,2 +1,2 @@
 # finance-life
-Acompanhar vida financeira
+Projeto para acompanhar vida financeira e praticar minhas habilidades de programação
