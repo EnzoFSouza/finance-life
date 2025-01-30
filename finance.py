@@ -1,9 +1,9 @@
 PRECO_MEDIO = 10
 QUANTIDADE = 2
 DY = 10 #% ao ano
-GANHO_DIA = 2.40
+GANHO_DIA = 1.00
 
-def calcGanhos(preco_atual):
+def calcGanhoAtivo(preco_atual):
     x = (preco_atual - PRECO_MEDIO) * QUANTIDADE
     if x >= 0:
         print(f"Ganho de R${x:.2f}")
@@ -17,10 +17,19 @@ def calcDividendosAtivo(preco_atual):
     print(f"De acordo com a estimativa, você receberá R${x:.2f} de dividendos no ano")
     return x
 
-def calcGanhoMes():
+def calcGanhoMes(printar = False):
     x = GANHO_DIA * 22
-    print(f"Em um mês, você receberá R${x}")
+    if printar:
+        print(f"Em um mês, você receberá R${x}")
+    return x
 
-calcGanhos(8)
+def calcGanhoAno(num_de_anos, printar = False):
+    soma = calcGanhoMes(printar) * 12 * num_de_anos 
+    
+    print(f"Em {num_de_anos} ano(s), você receberá R${soma:.2f}")
+    return soma
+
+calcGanhoAtivo(8)
 calcDividendosAtivo(8)
-calcGanhoMes()
+calcGanhoMes(True)
+calcGanhoAno(5)
