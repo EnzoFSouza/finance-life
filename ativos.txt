@@ -1,0 +1,2 @@
+{"preco_medio": 20.0, "quantidade": 2, "dy": 12, "preco_atual": 25}
+{"preco_medio": 5.0, "quantidade": 10, "dy": 6, "preco_atual": 10}
