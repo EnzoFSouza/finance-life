@@ -181,11 +181,16 @@ XYZ11 = {
     "preco_atual": 150,
 }
 
-#convertendo de python para json
-y = json.dumps(DEF11)
-print(y)
+lista_ativos = [ABC11, DEF11, GHI34, JKL33, MNO11, PQR3, STU3, VWX4, YZA4, BCD34,
+                EFG11, HIJ4, LMN5, OPQ11, RST11, UVW3, XYZ11]
 
 f = open("finance-life/ativos.txt", "a+")
-f.write(y+"\n")
+
+#loop por todos os dicionários python para escrever todos os ativos
+for i in range(len(lista_ativos)):
+    #convertendo de python para json
+    y = json.dumps(lista_ativos[i])
+
+    f.write(y+"\n")
+
 f.close()
-#with open("ativos.txt", "a+") as f
