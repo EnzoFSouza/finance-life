@@ -21,12 +21,12 @@ class Ativo():
         return self.dividendos
 
 
-meu_ativo = Ativo("ABC3", 20, 2, 12)
+#meu_ativo = Ativo("ABC3", 20, 2, 12)
+#
+#print(meu_ativo.ganho)
+#meu_ativo.calcGanho(22)
+#print(meu_ativo.ganho)
 
-print(meu_ativo.ganho)
-meu_ativo.calcGanho(22)
-print(meu_ativo.ganho)
-
-print(meu_ativo.dividendos)
-meu_ativo.calcDividendos(22)
-print(meu_ativo.dividendos)
+#print(meu_ativo.dividendos)
+#meu_ativo.calcDividendos(22)
+#print(meu_ativo.dividendos)
