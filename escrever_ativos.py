@@ -188,9 +188,16 @@ f = open("finance-life/ativos.txt", "a+")
 
 #loop por todos os dicionários python para escrever todos os ativos
 for i in range(len(lista_ativos)):
-    #convertendo de python para json
-    y = json.dumps(lista_ativos[i])
+    if i == 0:
+        f.write("[")
 
-    f.write(y+"\n")
+    #convertendo de python para json
+    if i == len(lista_ativos) - 1:
+        y = json.dumps(lista_ativos[i])
+        f.write(y + "]")
+    
+    else:
+        y = json.dumps(lista_ativos[i])
+        f.write(y + ",")
 
 f.close()
