@@ -38,11 +38,11 @@ for i in range(len(ativos)):
 #    print(lista_de_objetos[i].nome)
 
 nome = input()
-
-indice = encontrarAtivo(nome)
-
-#print(lista_de_objetos[indice].nome)
-#print(lista_de_objetos[indice].preco_medio)
-#print(lista_de_objetos[indice].qtd)
-#print(lista_de_objetos[indice].dy)
-status(lista_de_objetos[indice], 150)
+while (nome != "sair"):
+    indice = encontrarAtivo(nome)
+    #print(lista_de_objetos[indice].nome)
+    #print(lista_de_objetos[indice].preco_medio)
+    #print(lista_de_objetos[indice].qtd)
+    #print(lista_de_objetos[indice].dy)
+    status(lista_de_objetos[indice], 150)
+    nome = input()
