@@ -7,9 +7,10 @@ def encontrarAtivo(nome):
         if lista_de_objetos[i].nome == nome:
             return i
 
-def status(objeto, preco_atual):
+def status(objeto, preco_atual, valor_total):
     objeto.calcGanho(preco_atual)
     objeto.calcDividendos(preco_atual)
+    objeto.calcPorcentagem(preco_atual, valor_total)
 
     print("Nome: ", objeto.nome)
     print("Preco Medio: ", objeto.preco_medio)
@@ -17,6 +18,7 @@ def status(objeto, preco_atual):
     print("DY: ", objeto.dy)
     print("Ganho: ", objeto.ganho)
     print("Dividendos: ", objeto.dividendos)
+    print(f"Participacao: {objeto.participacao}%")
 
 #criando uma lista de objetos
 lista_de_objetos = list()
@@ -44,5 +46,5 @@ while (nome != "sair"):
     #print(lista_de_objetos[indice].preco_medio)
     #print(lista_de_objetos[indice].qtd)
     #print(lista_de_objetos[indice].dy)
-    status(lista_de_objetos[indice], 150)
+    status(lista_de_objetos[indice], 150, 1500)
     nome = input()
