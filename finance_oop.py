@@ -8,6 +8,7 @@ class Ativo():
         self.ganho = 0
         self.dividendos = 0
         self.participacao = 0 #%
+        self.valor_total = 0
     
     #calcular ganho considerando todas as acoes
     def calcGanho(self, preco_atual):
@@ -21,10 +22,15 @@ class Ativo():
         self.dividendos = round(self.dividendos, 2)
         return self.dividendos
     
-    def calcPorcentagem(self, preco_atual, valor_total):
-        self.participacao = ((preco_atual * self.qtd) * 100) / valor_total
+    def calcPorcentagem(self, preco_atual):
+        self.calcValorTotalAtivo(preco_atual)
+        self.participacao = ((preco_atual * self.qtd) * 100) / self.valor_total
         self.participacao = round(self.participacao, 2)
         return self.participacao
+    
+    def calcValorTotalAtivo(self, preco_atual):
+        self.valor_total = preco_atual * self.qtd
+        return self.valor_total
 
 
 #meu_ativo = Ativo("ABC3", 20, 2, 12)
