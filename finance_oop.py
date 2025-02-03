@@ -22,9 +22,8 @@ class Ativo():
         self.dividendos = round(self.dividendos, 2)
         return self.dividendos
     
-    def calcPorcentagem(self, preco_atual):
-        self.calcValorTotalAtivo(preco_atual)
-        self.participacao = ((preco_atual * self.qtd) * 100) / self.valor_total
+    def calcParticipacao(self, preco_atual, valor_carteira):
+        self.participacao = ((preco_atual * self.qtd) * 100) / valor_carteira
         self.participacao = round(self.participacao, 2)
         return self.participacao
     
