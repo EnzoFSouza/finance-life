@@ -7,6 +7,10 @@ def encontrarAtivo(nome):
         if lista_de_objetos[i].nome == nome:
             return i
 
+def printarOpcoes():
+    for i in range(len(lista_de_objetos)):
+        print(lista_de_objetos[i].nome, end = " ")
+
 precos_atuais = list()
 #criar funcao para somar todos os precos atuais de cada ativo, multiplicar pelas respectivas quantidades
 #e obter o valor _total, para ter a porcentagem de cada ativo na carteira
@@ -24,6 +28,7 @@ def status(objeto, preco_atual, valor_carteira):
 
     print("Nome: ", objeto.nome)
     print("Preco Medio: ", objeto.preco_medio)
+    print("Preco Atual: ", preco_atual)
     print("Quantidade: ", objeto.qtd)
     print("DY: ", objeto.dy)
     print("Ganho: ", objeto.ganho)
@@ -53,6 +58,8 @@ print(precos_atuais)
 #for i in range(len(lista_de_objetos)):
 #    print(lista_de_objetos[i].nome)
 
+printarOpcoes()
+print()
 nome = input()
 while (nome != "sair"):
     indice = encontrarAtivo(nome)
@@ -60,5 +67,7 @@ while (nome != "sair"):
     #print(lista_de_objetos[indice].preco_medio)
     #print(lista_de_objetos[indice].qtd)
     #print(lista_de_objetos[indice].dy)
-    status(lista_de_objetos[indice], 150, obterValorCarteira())
+    status(lista_de_objetos[indice], precos_atuais[indice], obterValorCarteira())
+    printarOpcoes()
+    print()
     nome = input()
