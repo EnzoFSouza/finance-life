@@ -208,23 +208,13 @@ XYZ11 = {
     "preco_atual": 150,
 }
 
+def escreverAtivos():
+    f = open("finance-life/ativos.txt", "a+")
+    y = json.dumps(lista_ativos)
+    f.write(y)
+    f.close()
+
 lista_ativos = [ABC11, DEF11, GHI34, JKL33, MNO11, PQR3, STU3, VWX4, YZA4, BCD34,
                 EFG11, HIJ4, LMN5, OPQ11, RST11, UVW3, XYZ11]
 
-f = open("finance-life/ativos.txt", "a+")
-
-#loop por todos os dicionários python para escrever todos os ativos
-for i in range(len(lista_ativos)):
-    if i == 0:
-        f.write("[")
-
-    #convertendo de python para json
-    if i == len(lista_ativos) - 1:
-        y = json.dumps(lista_ativos[i])
-        f.write(y + "]")
-    
-    else:
-        y = json.dumps(lista_ativos[i])
-        f.write(y + ",")
-
-f.close()
+escreverAtivos()

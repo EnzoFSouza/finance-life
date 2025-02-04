@@ -4,6 +4,7 @@ def escreverRenda():
     f = open("finance-life/fontes_renda.txt", "a+")
     y = json.dumps(lista_fontes_renda)
     f.write(y)
+    f.close()
     
 
 def criarRendaOuDespesa(nome, valor):
