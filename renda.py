@@ -1,17 +1,9 @@
-def criarDespesa(nome, valor):
-    despesa = {
+def criarRendaOuDespesa(nome, valor):
+    x = {
         "nome": nome,
         "valor": valor,
     }
-    return despesa
-
-def criarFonteRenda(nome, valor):
-    fonte_renda = {
-        "nome": nome,
-        "valor": valor,
-    }   
-
-    return fonte_renda
+    return x
 
 def somar(lista):
     soma = 0
@@ -34,13 +26,13 @@ n_fontes_renda = int(input())
 for i in range(n_despesas):
     nome = input()
     valor = float(input())
-    lista_despesas.append(criarDespesa(nome, valor))
+    lista_despesas.append(criarRendaOuDespesa(nome, valor))
 
 #preenchendo lista_fontes_renda
 for i in range(n_fontes_renda):
     nome = input()
     valor = float(input())
-    lista_fontes_renda.append(criarFonteRenda(nome, valor))
+    lista_fontes_renda.append(criarRendaOuDespesa(nome, valor))
 
 total_despesas = somar(lista_despesas)
 total_fontes_renda = somar(lista_fontes_renda)

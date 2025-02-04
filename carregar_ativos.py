@@ -12,8 +12,8 @@ def printarOpcoes():
         print(lista_de_objetos[i].nome, end = " ")
 
 precos_atuais = list()
-#criar funcao para somar todos os precos atuais de cada ativo, multiplicar pelas respectivas quantidades
-#e obter o valor _total, para ter a porcentagem de cada ativo na carteira
+
+#Somar precos atuais, multiplicar pelas respectivas quantidades e obter o valor da carteira
 def obterValorCarteira():
     valor_carteira = 0
     for i in range(len(precos_atuais)):
