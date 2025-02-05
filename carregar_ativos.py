@@ -27,14 +27,14 @@ def status(objeto, preco_atual, valor_carteira):
     objeto.calcValorTotalAtivo(preco_atual)
 
     print(f"Nome: {objeto.nome}")
-    print(f"Preco Medio: {objeto.preco_medio}")
-    print(f"Preco Atual: {preco_atual}")
+    print(f"Preco Medio: R${objeto.preco_medio:.2f}")
+    print(f"Preco Atual: R${preco_atual:.2f}")
     print(f"Quantidade: {objeto.qtd}")
     print(f"DY: {objeto.dy}")
-    print(f"Ganho: {objeto.ganho}")
-    print(f"Dividendos: {objeto.dividendos}")
+    print(f"Ganho: R${objeto.ganho:.2f}")
+    print(f"Dividendos: R${objeto.dividendos:.2f}")
     print(f"Participacao: {objeto.participacao}%")
-    print(f"Valor total do ativo: {objeto.valor_total}")
+    print(f"Valor total do ativo: R${objeto.valor_total:.2f}")
 
 #criando uma lista de objetos
 lista_de_objetos = list()

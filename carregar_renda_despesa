@@ -7,6 +7,16 @@ def somar(lista):
     
     return soma
 
+def status():
+    print(f"Lista renda: {lista_renda}")
+    print(f"Total renda: R${total_renda:.2f}")
+    print(f"Lista despesas: {lista_despesas}")
+    print(f"Total despesas: R${total_despesas:.2f}")
+    if diferenca < 0:
+        print(f"Déficit de R${abs(diferenca):.2f}")
+    else:
+        print(f"Ganho de R${diferenca:.2f}")
+        
 lista_renda = list()
 lista_despesas = list()
 
@@ -23,8 +33,6 @@ with open("finance-life/despesas.txt", "r") as f:
 total_despesas = somar(lista_despesas)
 total_renda = somar(lista_renda)
 
-print(f"Lista renda: {lista_renda}")
-print(f"Total renda: {total_renda}")
+diferenca = total_renda - total_despesas
 
-print(f"Lista despesas: {lista_despesas}")
-print(f"Total despesas: {total_despesas}")
+status()
