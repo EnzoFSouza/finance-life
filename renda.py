@@ -5,7 +5,12 @@ def escreverRenda():
     y = json.dumps(lista_fontes_renda)
     f.write(y)
     f.close()
-    
+
+def escreverDespesa():
+    f = open("finance-life/despesas.txt", "a+")
+    y = json.dumps(lista_despesas)
+    f.write(y)
+    f.close()
 
 def criarRendaOuDespesa(nome, valor):
     x = {
@@ -46,7 +51,8 @@ for i in range(n_fontes_renda):
 total_despesas = somar(lista_despesas)
 total_fontes_renda = somar(lista_fontes_renda)
 
-escreverRenda()
+#escreverRenda()
+escreverDespesa()
 
 print(lista_despesas)
 print(total_despesas)

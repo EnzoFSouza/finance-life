@@ -1,0 +1,1 @@
+[{"nome": "eletricidade", "valor": 200.0}, {"nome": "aluguel", "valor": 750.0}]
