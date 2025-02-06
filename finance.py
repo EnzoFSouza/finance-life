@@ -29,7 +29,15 @@ def calcGanhoAno(num_de_anos, printar = False):
     print(f"Em {num_de_anos} ano(s), você receberá R${soma:.2f}")
     return soma
 
+def calcTempoMeta(meta):
+    tempo = meta // calcGanhoAno(1)
+    print(tempo)
+    return tempo
+
+meta = float(input())
+
 calcGanhoAtivo(8)
 calcDividendosAtivo(8)
 calcGanhoMes(True)
 calcGanhoAno(5)
+calcTempoMeta(meta)
