@@ -34,6 +34,12 @@ def calcTempoMeta(meta):
     print(tempo)
     return tempo
 
+def calcBolaDeNeve(preco_atual, dy_mensal):
+    x = preco_atual * (dy_mensal / 100) #rendimento de uma cota de um ativo
+    qtd_bola_neve = preco_atual//x #qtd de cotas necessarias para comprar uma nova cota do ativo
+    print(f"Quantidade aproximada de cotas para bola de neve: {qtd_bola_neve}")
+    return qtd_bola_neve
+
 meta = float(input())
 
 calcGanhoAtivo(8)
@@ -41,3 +47,4 @@ calcDividendosAtivo(8)
 calcGanhoMes(True)
 calcGanhoAno(5)
 calcTempoMeta(meta)
+calcBolaDeNeve(10, 1)
