@@ -9,6 +9,8 @@ class Ativo():
         self.dividendos = 0
         self.participacao = 0 #%
         self.valor_total = 0
+        self.dividendo_uma_cota = 0
+        self.expectativa_de_ganho = 0
     
     #calcular ganho considerando todas as acoes
     def calcGanho(self, preco_atual):
@@ -22,22 +24,21 @@ class Ativo():
         self.dividendos = round(self.dividendos, 2)
         return self.dividendos
     
+    #calcular participacao de um ativo na carteira
     def calcParticipacao(self, preco_atual, valor_carteira):
         self.participacao = ((preco_atual * self.qtd) * 100) / valor_carteira
         self.participacao = round(self.participacao, 2)
         return self.participacao
     
+    #calcular valor total do ativo na carteira
     def calcValorTotalAtivo(self, preco_atual):
         self.valor_total = preco_atual * self.qtd
         return self.valor_total
+    
+    def calcBolaDeNeve(self, preco_atual, dy_mensal):
+        self.dividendo_uma_cota = preco_atual * (dy_mensal / 100) #rendimento de uma cota de um ativo
+        qtd_bola_neve = preco_atual//self.dividendo_uma_cota #qtd de cotas necessarias para comprar uma nova cota do ativo
+        return qtd_bola_neve
 
-
-#meu_ativo = Ativo("ABC3", 20, 2, 12)
-#
-#print(meu_ativo.ganho)
-#meu_ativo.calcGanho(22)
-#print(meu_ativo.ganho)
-
-#print(meu_ativo.dividendos)
-#meu_ativo.calcDividendos(22)
-#print(meu_ativo.dividendos)
+    def calcRendimentoMes(self, preco_atual, dy_mensal):
+        self.expectativa_de_ganho = preco_atual * (dy_mensal / 100) * self.qtd
