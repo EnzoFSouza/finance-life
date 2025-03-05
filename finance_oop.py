@@ -11,6 +11,7 @@ class Ativo():
         self.participacao = 0 #%
         self.valor_total = 0
         self.dividendo_uma_cota = 0
+        self.qtd_bola_neve = 0
         self.expectativa_de_ganho = 0
     
     #calcular ganho considerando todas as acoes
@@ -20,8 +21,8 @@ class Ativo():
         return self.ganho
     
     #calcular estimativa de dividendos anual
-    def calcDividendos(self, preco_atual):
-        self.dividendos = (preco_atual * (self.dy/100) * self.qtd)
+    def calcDividendosAnual(self, preco_atual):
+        self.dividendos = (preco_atual * (self.dy_anual/100) * self.qtd)
         self.dividendos = round(self.dividendos, 2)
         return self.dividendos
     
@@ -38,8 +39,9 @@ class Ativo():
     
     def calcBolaDeNeve(self, preco_atual):
         self.dividendo_uma_cota = preco_atual * (self.dy_mensal / 100) #rendimento de uma cota de um ativo
-        qtd_bola_neve = preco_atual//self.dividendo_uma_cota #qtd de cotas necessarias para comprar uma nova cota do ativo
-        return qtd_bola_neve
+        self.qtd_bola_neve = preco_atual//self.dividendo_uma_cota #qtd de cotas necessarias para comprar uma nova cota do ativo
+        return self.qtd_bola_neve
 
     def calcRendimentoMes(self, preco_atual):
         self.expectativa_de_ganho = preco_atual * (self.dy_mensal / 100) * self.qtd
+        return self.expectativa_de_ganho

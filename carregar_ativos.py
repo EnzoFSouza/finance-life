@@ -22,19 +22,24 @@ def obterValorCarteira():
 
 def status(objeto, preco_atual, valor_carteira):
     objeto.calcGanho(preco_atual)
-    objeto.calcDividendos(preco_atual)
+    objeto.calcDividendosAnual(preco_atual)
     objeto.calcParticipacao(preco_atual, valor_carteira)
     objeto.calcValorTotalAtivo(preco_atual)
+    objeto.calcBolaDeNeve(preco_atual)
+    objeto.calcRendimentoMes(preco_atual)
 
     print(f"Nome: {objeto.nome}")
     print(f"Preco Medio: R${objeto.preco_medio:.2f}")
     print(f"Preco Atual: R${preco_atual:.2f}")
     print(f"Quantidade: {objeto.qtd}")
-    print(f"DY: {objeto.dy}")
+    print(f"DY Anual: {objeto.dy_anual}")
+    print(f"DY Mensal: {objeto.dy_mensal}")
     print(f"Ganho: R${objeto.ganho:.2f}")
-    print(f"Dividendos: R${objeto.dividendos:.2f}")
+    print(f"Rendimento estimado para o ano: R${objeto.dividendos:.2f}")
     print(f"Participacao: {objeto.participacao}%")
     print(f"Valor total do ativo: R${objeto.valor_total:.2f}")
+    print(f"Quantidade para efeito bola de neve: {objeto.qtd_bola_neve}")
+    print(f"Rendimento estimado para o mês: R${objeto.expectativa_de_ganho:.2f}")
 
 #criando uma lista de objetos
 lista_de_objetos = list()
@@ -50,7 +55,7 @@ with open("finance-life/ativos.txt", "r") as f:
 
 for i in range(len(ativos)):
     #preenchendo a lista de objetos (com objetos)
-    meu_ativo = Ativo(ativos[i]["nome"], ativos[i]["preco_medio"], ativos[i]["quantidade"], ativos[i]["dy"])
+    meu_ativo = Ativo(ativos[i]["nome"], ativos[i]["preco_medio"], ativos[i]["quantidade"], ativos[i]["dy_anual"], ativos[i]["dy_mensal"])
     lista_de_objetos.append(meu_ativo)
 
     #preenchendo a lista de precos atuais com o valor do preco medio + 5 para fins de testes
