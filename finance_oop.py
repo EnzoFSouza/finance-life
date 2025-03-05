@@ -1,9 +1,10 @@
 class Ativo():
-    def __init__(self, nome, preco_medio, qtd, dy):
+    def __init__(self, nome, preco_medio, qtd, dy_anual, dy_mensal):
         self.nome = nome
         self.preco_medio = preco_medio
         self.qtd = qtd
-        self.dy = dy #% ao ano
+        self.dy_anual = dy_anual #% ao ano
+        self.dy_mensal = dy_mensal #% ao mes
 
         self.ganho = 0
         self.dividendos = 0
@@ -35,10 +36,10 @@ class Ativo():
         self.valor_total = preco_atual * self.qtd
         return self.valor_total
     
-    def calcBolaDeNeve(self, preco_atual, dy_mensal):
-        self.dividendo_uma_cota = preco_atual * (dy_mensal / 100) #rendimento de uma cota de um ativo
+    def calcBolaDeNeve(self, preco_atual):
+        self.dividendo_uma_cota = preco_atual * (self.dy_mensal / 100) #rendimento de uma cota de um ativo
         qtd_bola_neve = preco_atual//self.dividendo_uma_cota #qtd de cotas necessarias para comprar uma nova cota do ativo
         return qtd_bola_neve
 
-    def calcRendimentoMes(self, preco_atual, dy_mensal):
-        self.expectativa_de_ganho = preco_atual * (dy_mensal / 100) * self.qtd
+    def calcRendimentoMes(self, preco_atual):
+        self.expectativa_de_ganho = preco_atual * (self.dy_mensal / 100) * self.qtd
