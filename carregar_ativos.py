@@ -1,9 +1,30 @@
 import json
 from finance_oop import Ativo
 
+GANHO_DIA = 1.0
+
+def calcGanhoMes():
+    x = GANHO_DIA * 22
+    #print(f"Recebendo {GANHO_DIA} por dia durante um mês, você receberá R${x}")
+    return x
+
+def calcGanhoAno(num_anos):
+    valor = calcGanhoMes() * 12 * num_anos 
+    print(f"Em {num_anos} ano(s), você receberá R${valor:.2f}")
+    return valor
+
+def calcTempoMeta(meta):
+    tempo = meta // calcGanhoAno(1) #tempo em anos
+    return tempo
+
 def printarOpcoes():
     for i in range(len(lista_de_objetos)):
         print(lista_de_objetos[i].nome, end = " ")
+    
+    nomes_funcoes = ["calcGanhoMes", "calcGanhoAno", "calcTempoMeta"]
+    for i in range(len(nomes_funcoes)):
+        print(nomes_funcoes[i], end = " ")
+        
     print()
 
 def encontrarAtivo(nome):
@@ -66,12 +87,26 @@ printarOpcoes()
 
 nome = input()
 while (nome != "sair"):
-    indice = encontrarAtivo(nome)
-    if (indice == None):
-        print("Ativo não encontrado, digite novamente")
+    if nome == "calcGanhoMes":
+        ganho_mensal = calcGanhoMes()
+        print(f"Recebendo {GANHO_DIA} por dia durante um mês, você receberá R${ganho_mensal}")
     
+    elif nome == "calcGanhoAno":
+        n_anos = int(input())
+        ganho_anual = calcGanhoAno(n_anos)
+    
+    elif nome == "calcTempoMeta":
+        meta = int(input())
+        tempo_anos = calcTempoMeta(meta)
+        print(f"Em {tempo_anos}, você atingirá sua meta de {meta}")
+
     else:
-        status(lista_de_objetos[indice], precos_atuais[indice], valor_carteira)
+        indice = encontrarAtivo(nome)
+        if (indice == None):
+            print("Ativo não encontrado, digite novamente")
+    
+        else:
+            status(lista_de_objetos[indice], precos_atuais[indice], valor_carteira)
     
     printarOpcoes()
     nome = input()
