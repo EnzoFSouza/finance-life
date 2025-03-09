@@ -66,6 +66,8 @@ class Pessoa():
         for i in range(len(nomes_funcoes)):
             print(nomes_funcoes[i], end = " ")
         
+        print("sair", end = " ")
+        
         print()
 
     def loop(self):
