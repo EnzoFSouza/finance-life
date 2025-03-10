@@ -1,6 +1,6 @@
 import pandas as pd
 from finance_oop import Ativo
-from cliente_oop import Pessoa
+from cliente_oop import Cliente
 
 GANHO_DIARIO = 1
 
@@ -21,5 +21,17 @@ for i in range(ativos_df.shape[0]):
     lista_ativos.append(Ativo(nome, preco_medio, quantidade, dy_anual, dy_mensal))
     lista_precos_atuais.append(preco_atual)
 
-pessoa = Pessoa(lista_ativos, lista_precos_atuais, GANHO_DIARIO)
-pessoa.loop()
+cliente = Cliente(lista_ativos, lista_precos_atuais, GANHO_DIARIO)
+cliente.loop()
+
+#ativos_df = pd.read_csv("finance-life/ativos.csv")
+#valores_df = ativos_df[["Preco Medio", "Dividend Yield", "Quantidade", "Preco Atual"]]
+#coluna_preco_medio = ativos_df[["Preco Medio"]]
+#preco_especifico = ativos_df.at[0, "Preco Medio"]
+#print(ativos_df) #print dataframe inteiro
+#print(valores_df) #print das colunas preco medio, dividend yield, quantidade e preco atual
+#print(coluna_preco_medio) #print coluna preco medio
+#print(preco_especifico) #print valor especifico da linha 0 e coluna preco medio
+#print(ativos_df.shape)
+#print(ativos_df.shape[0]) #linhas
+#print(ativos_df.shape[1]) #colunas

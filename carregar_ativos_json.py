@@ -1,6 +1,6 @@
 import json
 from finance_oop import Ativo
-from cliente_oop import Pessoa
+from cliente_oop import Cliente
 
 GANHO_DIARIO = 1.5
 
@@ -24,5 +24,5 @@ for i in range(len(ativos)):
     #preenchendo a lista de precos atuais com o valor do preco medio + 5 para fins de testes
     precos_atuais.append(ativos[i]["preco_medio"] + 5)
 
-pessoa = Pessoa(lista_de_objetos, precos_atuais, GANHO_DIARIO)
-pessoa.loop()
+cliente = Cliente(lista_de_objetos, precos_atuais, GANHO_DIARIO)
+cliente.loop()

@@ -1,4 +1,4 @@
-class Pessoa():
+class Cliente():
     def __init__(self, carteira, precos_atuais, ganho_diario):
         self.carteira = carteira #lista de objetos
         self.precos_atuais = precos_atuais #lista com precos atuais dos ativos na ordem correta
