@@ -1,3 +1,4 @@
+import math
 class Cliente():
     def __init__(self, carteira, precos_atuais, ganho_diario):
         self.carteira = carteira #lista de objetos
@@ -22,7 +23,8 @@ class Cliente():
         return self.ganho_ano
 
     def calcTempoMeta(self):
-        self.tempo_meta = self.meta // self.calcGanhoAno() #tempo em anos
+        self.tempo_meta = self.meta / self.calcGanhoAno() #tempo em anos
+        self.tempo_meta = math.ceil(self.tempo_meta)
         return self.tempo_meta
 
     def status(self, objeto, preco_atual):
@@ -76,7 +78,7 @@ class Cliente():
         while (self.nome != "sair"):
             if self.nome == "calcGanhoMes":
                 self.ganho_mensal = self.calcGanhoMes()
-                print(f"Recebendo {self.ganho_diario} por dia durante um mês, você receberá R${self.ganho_mensal}")
+                print(f"Recebendo R${self.ganho_diario:.2f} por dia durante um mês, você receberá R${self.ganho_mensal:.2f}")
         
             elif self.nome == "calcGanhoAno":
                 self.num_anos = int(input())
@@ -86,7 +88,7 @@ class Cliente():
             elif self.nome == "calcTempoMeta":
                 self.meta = int(input())
                 self.tempo_meta = self.calcTempoMeta()
-                print(f"Em {self.tempo_meta}, você atingirá sua meta de {self.meta}")
+                print(f"Em {self.tempo_meta} ano(s), você atingirá sua meta de R${self.meta:.2f}")
 
             else:
                 self.indice = self.encontrarAtivo()

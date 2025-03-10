@@ -1,3 +1,4 @@
+import math
 class Ativo():
     def __init__(self, nome, preco_medio, qtd, dy_anual, dy_mensal):
         self.nome = nome
@@ -39,7 +40,9 @@ class Ativo():
     
     def calcBolaDeNeve(self, preco_atual):
         self.dividendo_uma_cota = preco_atual * (self.dy_mensal / 100) #rendimento de uma cota de um ativo
-        self.qtd_bola_neve = preco_atual//self.dividendo_uma_cota #qtd de cotas necessarias para comprar uma nova cota do ativo
+        self.qtd_bola_neve = preco_atual/self.dividendo_uma_cota #qtd de cotas necessarias para comprar uma nova cota do ativo
+        self.qtd_bola_neve = math.ceil(self.qtd_bola_neve)
+
         return self.qtd_bola_neve
 
     def calcRendimentoMes(self, preco_atual):
