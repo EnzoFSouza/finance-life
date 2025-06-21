@@ -1,11 +1,12 @@
 import math
 class Ativo():
-    def __init__(self, nome, preco_medio, qtd, dy_anual, dy_mensal):
+    def __init__(self, nome, preco_medio, qtd, dy_anual, dy_mensal, datas_pag):
         self.nome = nome
         self.preco_medio = preco_medio
         self.qtd = qtd
         self.dy_anual = dy_anual #% ao ano
         self.dy_mensal = dy_mensal #% ao mes
+        self.datas_pag = datas_pag #string
 
         self.ganho = 0
         self.dividendos = 0
@@ -48,3 +49,6 @@ class Ativo():
     def calcRendimentoMes(self, preco_atual):
         self.expectativa_de_ganho = preco_atual * (self.dy_mensal / 100) * self.qtd
         return self.expectativa_de_ganho
+
+    def datasPag(self):
+        return self.datas_pag

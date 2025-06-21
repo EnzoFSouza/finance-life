@@ -47,6 +47,7 @@ class Cliente():
         print(f"Valor total do ativo: R${objeto.valor_total:.2f}")
         print(f"Quantidade para efeito bola de neve: {objeto.qtd_bola_neve}")
         print(f"Rendimento estimado para o mês: R${objeto.expectativa_de_ganho:.2f}")
+        print(f"Datas de pagamento: {objeto.datasPag()}")
 
     def encontrarAtivo(self):
         #Percorrendo todos os ativos até encontrar aquele com o nome digitado

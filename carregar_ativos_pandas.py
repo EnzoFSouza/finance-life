@@ -18,7 +18,8 @@ for i in range(ativos_df.shape[0]):
     quantidade = ativos_df.at[i, "Quantidade"]
     dy_mensal = ativos_df.at[i, "Dividend Yield Mensal"]
     dy_anual = ativos_df.at[i, "Dividend Yield Anual"]
-    lista_ativos.append(Ativo(nome, preco_medio, quantidade, dy_anual, dy_mensal))
+    datas_pag = ativos_df.at[i, "Datas Pag"]
+    lista_ativos.append(Ativo(nome, preco_medio, quantidade, dy_anual, dy_mensal, datas_pag))
     lista_precos_atuais.append(preco_atual)
 
 cliente = Cliente(lista_ativos, lista_precos_atuais, GANHO_DIARIO)
